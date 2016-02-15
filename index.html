@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="friendFinder" ng-controller="friendController">
 <head>
   <title>Angular Friends</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
@@ -10,11 +10,11 @@
 
   <h1>The <strong>facebook</strong> Friend Machine</h1>
 
-  <div class="friends">
+  <div class="friends" >
     <form class="form-inline searchForm" role="form">
       <div class="form-group">
 
-        <input class="form-control" placeholder="Search Anything About Your Friends">
+        <input class="form-control"  placeholder="Search Anything About Your Friends">
         <!-- STEP 5: Get rid of the one above when you uncomment the below-->
           <!--
         <input class="form-control" placeholder="Search Name">
@@ -38,21 +38,21 @@
     </form>
 
     <ul>
-      <li class='friend'>
-        <img class="profile-pic" src='http://placebear.com/50/50.jpg'>
+      <li class='friend' ng-repeat="friend in friends" >
+        <img class="profile-pic" src={{friend.pic_square}}>
 
-        <h3>Cali Fornia</h3>
+        <h3>{{friend.name}}</h3>
 
         <div class="location">
-          Location: New Port Beach, California, United States
+          {{friend.current_location.city}}, {{friend.current_location.state}}
         </div>
 
         <div class="status">
-          Status: I hate the snow. I wish I was on the beach right now!!! <span class="hashtag">#ihateprovo</span>
+          {{friend.status.message}}
         </div>
 
         <div class="num-friends">
-          Friends: 1,367
+          {{friend.friend_count}} friends
         </div>
       </li>
     </ul>
