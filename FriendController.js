@@ -1,5 +1,7 @@
 var app = angular.module('friendFinder');
 app.controller('friendController', function($scope) {
+  $scope.reverseOrder = '+';
+  $scope.orderAttribute = 'name';
 
 
   $scope.friends =

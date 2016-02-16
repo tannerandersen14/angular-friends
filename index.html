@@ -26,7 +26,7 @@
           <option>Country</option>
         </select>
 
-        <select class="input-medium">
+        <select class="input-medium" ng-model="reverseOrder">
           <option value="+">Descending</option>
           <option value="-">Ascending</option>
         </select>
@@ -35,8 +35,8 @@
     </form>
 
     <ul>
-      <li class='friend' ng-repeat="friend in friends | filter: {name: nameFilter} | filter: {current_location: {name: locationFilter}}" >
-        <img class="profile-pic" src={{friend.pic_square}}>
+      <li class='friend' ng-repeat="friend in friends | filter: {name: nameFilter} | filter: {current_location: {name: locationFilter}} | orderBy: reverseOrder + orderAttribute" >
+        <img ng-src="{{friend.pic_square}}" ng-class="profile-pic">
 
         <h3>{{friend.name}}</h3>
 
